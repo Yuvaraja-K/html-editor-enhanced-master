@@ -27,7 +27,8 @@ class HtmlEditorOptions {
       this.webInitialScripts,
       this.shouldEnsureVisible = false,
       this.spellCheck = false,
-      this.gestureRecognizers});
+      this.gestureRecognizers,
+      this.gestOnLongPress});
 
   /// The editor will automatically adjust its height when the keyboard is active
   /// to prevent the keyboard overlapping the editor.
@@ -128,6 +129,7 @@ class HtmlEditorOptions {
   final bool spellCheck;
 
   final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
+  final void Function()? gestOnLongPress;
 }
 
 /// Options that modify the toolbar and its behavior
