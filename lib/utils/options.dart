@@ -2,30 +2,32 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 
 /// Options that modify the editor and its behavior
 class HtmlEditorOptions {
-  const HtmlEditorOptions({
-    this.autoAdjustHeight = true,
-    this.androidUseHybridComposition = true,
-    this.adjustHeightForKeyboard = true,
-    this.characterLimit,
-    this.customOptions = '',
-    this.darkMode,
-    this.disabled = false,
-    this.filePath,
-    this.hint,
-    this.initialText,
-    this.inputType = HtmlInputType.text,
-    this.mobileContextMenu,
-    this.mobileLongPressDuration,
-    this.mobileInitialScripts,
-    this.webInitialScripts,
-    this.shouldEnsureVisible = false,
-    this.spellCheck = false,
-  });
+  const HtmlEditorOptions(
+      {this.autoAdjustHeight = true,
+      this.androidUseHybridComposition = true,
+      this.adjustHeightForKeyboard = true,
+      this.characterLimit,
+      this.customOptions = '',
+      this.darkMode,
+      this.disabled = false,
+      this.filePath,
+      this.hint,
+      this.initialText,
+      this.inputType = HtmlInputType.text,
+      this.mobileContextMenu,
+      this.mobileLongPressDuration,
+      this.mobileInitialScripts,
+      this.webInitialScripts,
+      this.shouldEnsureVisible = false,
+      this.spellCheck = false,
+      this.gestureRecognizers});
 
   /// The editor will automatically adjust its height when the keyboard is active
   /// to prevent the keyboard overlapping the editor.
@@ -124,6 +126,8 @@ class HtmlEditorOptions {
   ///
   /// Default value is false.
   final bool spellCheck;
+
+  final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
 }
 
 /// Options that modify the toolbar and its behavior
